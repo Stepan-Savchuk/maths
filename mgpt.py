@@ -119,23 +119,22 @@ class DictionaryApp:
                 language = input(("Enter language: "))
                 word = input('Enter the word, the interpretation of which you need to find: ')
                 definitions = self.dictionaries[language].search_word(word)
-                meanings = definitions.find_meanings(word)
-                if meanings:
+                if definitions:
                     print(f'Interpretation of the word "{word}":')
-                    for i, meaning in enumerate(meanings):
-                        print(f'{i + 1}. {meaning}')
+                    for i, definition in enumerate(definitions):
+                        print(f'{i + 1}. {definition}')
                 else:
                     print(f'word  "{word}" nor found.')
                 continue
             elif choice == "6":
                 language = input(("Enter language: "))
                 word = input("Enter the word you want to export: ")
-                meanings = self.dictionaries[language].search_word(word)
-                if meanings:
-                    dictionary = f"{word}_meanings.txt"
+                definitions = self.dictionaries[language].search_word(word)
+                if definitions:
+                    dictionary = f"{word}_definitions.txt"
                     with open(dictionary, "w") as file:
-                        for meaning in meanings:
-                            file.write(meaning + "\n")
+                        for definition in definitions:
+                            file.write(definition + "\n")
                             print(f"word '{word}' and its interpretation were successfully exported to a file '{dictionary}'")
                         else:
                             print(f"word '{word}' not found.")
