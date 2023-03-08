@@ -97,20 +97,24 @@ class DictionaryApp:
             if choice == "1":
                 language = input("Enter language: ")
                 self.create_dictionary(language)
+                continue
             elif choice == "2":
                 language = input("Enter language: ")
                 word = input("Enter word: ")
                 definitions = input("Enter definitions separated by commas: ").split(",")
                 self.add_word(language, word, definitions)
+                continue
             elif choice == "3":
                 language = input("Enter language: ")
                 word = input("Enter word: ")
                 definitions = input("Enter definitions separated by commas: ").split(",")
                 self.update_word(language, word, definitions)
+                continue
             elif choice == "4":
                 language = input(("Enter language: "))
                 word = input('Enter word you want to delete: ')
                 self.dictionaries[language].delete_word(word)
+                continue
             elif choice == '5':
                 language = input(("Enter language: "))
                 word = input('Enter the word, the interpretation of which you need to find: ')
@@ -122,10 +126,11 @@ class DictionaryApp:
                         print(f'{i + 1}. {meaning}')
                 else:
                     print(f'word  "{word}" nor found.')
+                continue
             elif choice == "6":
                 language = input(("Enter language: "))
                 word = input("Enter the word you want to export: ")
-                meanings = self.dictionaries[language].get(word)
+                meanings = self.dictionaries[language].search_word(word)
                 if meanings:
                     dictionary = f"{word}_meanings.txt"
                     with open(dictionary, "w") as file:
@@ -134,16 +139,11 @@ class DictionaryApp:
                             print(f"word '{word}' and its interpretation were successfully exported to a file '{dictionary}'")
                         else:
                             print(f"word '{word}' not found.")
+                continue
 
             elif choice == "7":
                 print("Close program")
             break
 
-
-
-
-
-
-
-
-
+main = DictionaryApp()
+main.run()
