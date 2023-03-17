@@ -17,7 +17,17 @@ int main(){
 	printf("Please enter a number of given percentage ");
 	scanf("%d", &number);
 	
+
 	result = 100 / (perc / number);
-	printf("Result %f \n", result);
+
+	int fn;
+
+	printf("Please enter a full number from which you wanna find percentage ");                                           scanf("%d", &fn);
+        printf("Please enter a number of which you wanna find percentage "
+);                                                                 scanf("%d", &number);
+
+	result = ( (float) number / (float) fn) * 100.0;
+
+	printf("Result %f\% \n", result);
 	return 0;
 }
