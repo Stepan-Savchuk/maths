@@ -3,7 +3,13 @@
 
 int main(){
 	double principal = 4200.0;
-	double amount = principal * (pow( (1.0 + (2.5/2.0)), (2.0*5.0) ));
+
+	double rate = 12.5;
+
+	double n = 2;
+	
+	double amount = (principal * rate * pow( (1+rate), n ) ) / ( pow( (1 + rate), n )-1);
+	
 	printf("%f", amount);
 	return 0;
 }
