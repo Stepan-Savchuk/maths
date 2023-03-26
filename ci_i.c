@@ -4,7 +4,7 @@
 int main(){
         double principal;
 	printf("Enter initial principal ");
-        scanf("%f", &principal);
+        scanf("%lf", &principal);
 
         int rate;
 	printf("Enter a rate ");
@@ -20,6 +20,6 @@ int main(){
 
         double amount = principal * pow( (double) (1 + rate/n), (double) (n*years) );
 
-        printf("%f", amount);
+        printf("%lf", amount);
         return 0;
 }
