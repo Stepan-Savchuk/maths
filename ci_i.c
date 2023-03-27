@@ -18,7 +18,7 @@ int main(){
 	printf("Enter amount of years ");
         scanf("%d", &years);
 
-        double amount = principal * pow( (double) (1 + rate/n), (double) (n*years) );
+        double amount = principal * pow( (1.0 + rate/100.0), ( (double) n * (double) years) );
 
         printf("%lf", amount);
         return 0;
