@@ -36,16 +36,25 @@ Circle* newCircle(Point p, int r){
 void drawCircle(Circle circle){
 	Point c = circle.center;
 	int r = circle.radius;
-	move(c.x+r, c.y);
+	/*move(c.y+r, c.x);
 	insch('*');
-	move(c.x-r, c.y);
+	move(c.y-r, c.x);
 	insch('*');
-	move(c.x, c.y+r*2);
+	move(c.y, c.x+r*2);
 	insch('*');
-	move(c.x, c.y-r*2);
-	insch('*');
+	move(c.y, c.x-r*2);
+	insch('*');*/
 
-	refresh();
+	for(int i = 1; i < (3*(r*r)); i++){
+		move((c.y+r-c.y)/i, (c.x-r*2+c.x)/i);
+		insch('*');
+		move((c.y-r+c.y)/i, (c.x+r*2-c.x)/i);
+		insch('*');
+		move((c.y+r-c.y)/i, (c.x+r*2-c.x)/i);
+		insch('*');
+		move((c.y-r+c.y)/i, (c.x-r*2+c.x)/i);
+		insch('*');
+	}
 }
 
 int main(){
@@ -59,11 +68,12 @@ int main(){
 	clear();
 	refresh();
 
-	Point* point = newPoint(15, 30);
+	Point* point = newPoint(30, 15);
 
 	Circle* circle = newCircle(*point, 5);
 
 	drawCircle(*circle);
+	refresh();
 
 	for(;;){
 		if(getch()=='q') break;
