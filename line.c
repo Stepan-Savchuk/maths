@@ -45,16 +45,10 @@ void drawCircle(Circle circle){
 	move(c.y, c.x-r*2);
 	insch('*');*/
 
-	for(int i = 1; i < 3; i++){
-		move((c.y+r)-c.y/i, (c.x-r*2)+c.x/i);
-		insch('*');
-		move((c.y-r)+c.y/i, (c.x+r*2)-c.x/i);
-		insch('*');
-		move((c.y+r)-c.y/i, (c.x+r*2)-c.x/i);
-		insch('*');
-		move((c.y-r)+c.y/i, (c.x-r*2)+c.x/i);
-		insch('*');
+	for(int i=c.x-r, int j=0; i <= c.x+r; i++){
+
 	}
+	
 }
 
 int main(){
