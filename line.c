@@ -37,15 +37,23 @@ void drawCircle(Circle circle){
 	Point c = circle.center;
 	int r = circle.radius;
 
-	for(int i = c.y; i < (r+c.y); i++){
-		int di = i;
+	for(int i = 0; i < r; i++){
+		int di = c.y+i;
 		int dj = (c.x-r) + i;
-		move(i, ( (c.x-r) + i ) );
+		move(c.y+i, ( (c.x-r) + i ) );
 		insch('*');
-		di = i*(-1);
+		di = c.y-i;
 		dj = (c.x+r) - i;
-		move(i*(-1), ( (c.x+r) - i ) );
+		move(c.y-i, ( (c.x+r) - i ) );
 		insch('*');
+		di = c.y+i;
+		dj = (c.x+r) - i;
+		move(c.y+i, ( (c.x+r) - i) );
+		insch('*');
+		di = c.y-i;
+                dj = (c.x-r) + i;
+                move(c.y-i, ( (c.x-r) + i ) );
+                insch('*');
 		refresh();
 	}
 }
@@ -65,7 +73,7 @@ int main(){
 	move(point->y, point->x);
 	insch('X');
 
-	Circle* circle = newCircle(*point, 5);
+	Circle* circle = newCircle(*point, 6);
 
 	drawCircle(*circle);
 	refresh();
