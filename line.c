@@ -36,25 +36,12 @@ Circle* newCircle(Point p, int r){
 void drawCircle(Circle circle){
 	Point c = circle.center;
 	int r = circle.radius;
+	
+	int xx = c.x-r;
+	int yy = 0;
 
-	for(int i = 0; i < r; i++){
-		int di = c.y+i;
-		int dj = (c.x-r) + i;
-		move(c.y+i, ( (c.x-r) + i ) );
-		insch('*');
-		di = c.y-i;
-		dj = (c.x+r) - i;
-		move(c.y-i, ( (c.x+r) - i ) );
-		insch('*');
-		di = c.y+i;
-		dj = (c.x+r) - i;
-		move(c.y+i, ( (c.x+r) - i) );
-		insch('*');
-		di = c.y-i;
-                dj = (c.x-r) + i;
-                move(c.y-i, ( (c.x-r) + i ) );
-                insch('*');
-		refresh();
+	while(xx <= c.x+r){
+		if(){}	//abs(xx-c.x) && abs(yy-c.y)
 	}
 }
 
