@@ -53,6 +53,7 @@ void drawCircle(Circle circle){
 	/*int xx = c.x-r;
 	int yy = 0;
 
+<<<<<<< HEAD
 	while(xx <= c.x+r){
 		if( (abs(xx-c.x) + abs(yy-c.y)) > r ){
 			
@@ -69,7 +70,12 @@ void drawCircle(Circle circle){
 				insch('*');
 			}
 		}
+=======
+	for(int i=c.x-r, int j=0; i <= c.x+r; i++){
+
+>>>>>>> 0dc97c46a225532828c2c80e9adca2e474636d19
 	}
+	
 }
 
 int main(){
