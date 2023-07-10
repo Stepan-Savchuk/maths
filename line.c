@@ -2,6 +2,19 @@
 
 #include <curses.h>
 
+
+
+int abs(int x){
+	if(x < 0) return x*=-1;
+	
+	return x;
+}
+
+int pow2(int x){
+	return x*x;
+}
+
+
 typedef struct Point {
 	int x;
 	int y;
@@ -37,11 +50,25 @@ void drawCircle(Circle circle){
 	Point c = circle.center;
 	int r = circle.radius;
 	
-	int xx = c.x-r;
+	/*int xx = c.x-r;
 	int yy = 0;
 
 	while(xx <= c.x+r){
-		if(){}	//abs(xx-c.x) && abs(yy-c.y)
+		if( (abs(xx-c.x) + abs(yy-c.y)) > r ){
+			
+		}	//abs(xx-c.x) && abs(yy-c.y)
+	}*/
+
+	int xx = c.x-r;
+	int yy = c.y-r;
+
+	for(int x = xx; x <= (c.x+r); x++){
+		for(int y = yy; y <= (c.x+r); y++){
+			if(pow2(abs(x-c.x))+pow2(abs(y-c.y))==pow2(r)){
+				move(y,x);
+				insch('*');
+			}
+		}
 	}
 }
 
