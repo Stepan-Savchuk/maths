@@ -3,7 +3,6 @@
 #include <curses.h>
 
 
-
 int abs(int x){
 	if(x < 0) return x*=-1;
 	
@@ -65,9 +64,9 @@ void drawCircle(Circle circle){
 
 	for(int x = xx; x <= (c.x+r); x++){
 		for(int y = yy; y <= (c.y+r); y++){
-			if(pow2(abs(x-c.x))+pow2(abs(y-c.y))<=pow2(r) && x != c.x && y != c.y){
+			if(pow2(abs(c.x-x))+pow2(abs(c.y-y))>=pow2(r)){
 				move(y,x);
-				insch('*');
+				insch('-');
 			}
 		}
 	}
@@ -84,11 +83,12 @@ int main(){
 	clear();
 	refresh();
 
-	Point* point = newPoint(30, 15);
-	move(point->y, point->x);
-	insch('*');
+	int mx, my;
+	getmaxyx(window, my, mx);
 
-	Circle* circle = newCircle(*point, 6);
+	Point* point = newPoint(mx/2, my/2);
+
+	Circle* circle = newCircle(*point, (mx-point->x)-14);
 
 	drawCircle(*circle);
 	refresh();
